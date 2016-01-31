@@ -1,10 +1,11 @@
 <?php
 //functions
-include ItemClass.php;
 
-public generateItemRow(Item $tempItem)
+
+function generateItemRow(Item $tempItem)
 {
 
+echo '
 <tr>
     <td>Item Name: $tempItem->name
     </td>
@@ -28,14 +29,19 @@ public generateItemRow(Item $tempItem)
     	<br/>
     </td>
 </tr>
-
+';
 }   
 
-public calculateTotal($itemsOrdered)
-{$total=0;
- itemsOrdered
+function createLineItem()
+{
+    
+}
+function calculateTotal($itemsOrdered)
+{
+	$total=0;
+
  
-      echo "You ordered " . $quantity  . " " . $item->name;
+      echo 'You ordered ' . $quantity  . ' ' . $item->name;
  
     
 }
