@@ -13,39 +13,39 @@
     ?>
 	<html>
 	<?php
-        $srv = $_SERVER['PHP_SELF'];
+       
         if (!isset($_POST['orderedItems'])) //if nothing is ordered, print the menu
-        { 
+        {  
             echo '
-            <form action = "' . $srv . '"  method = "POST"> 
-
-                <table>';
+            <form action = "' . $_SERVER['PHP_SELF'] . '"  method = "POST"> 
+            <table>';
+            echo'<tr><th>Menu:</th></tr>';
+            echo'<tr><td> Item: </td> <td> Description: </td> <td> Price:     </td><td> Quantity: </td></tr>';
+            foreach($menuItems as $tempItem) //while the array has items left in it
+            {
                 
-                    foreach($menuItems as $tempItem) //while the array has items left in it
-                    {
-                        createLineItem($tempItem); //call create row function and pass in individual item
-                    }
-               
-				echo '
-	        	<input type = "submit" name = "order" value ="Submit Order"> 
-	   	       	</table>
-    	    	</form>   ';
-		 }//if statement to generate menu + order form
-
-
-		else if(isset($_POST['orderedItems']))//items ordered, display summary and price
-        {
-			foreach ($_POST['orderedItems'] as $tempItem)
-            {   
-				$tempQuantity = $tempItem->name . "quantity";
-				$tempItem->quantity = $_POST[$tempQuantity];
+                generateItemRow($tempItem); //call create row function and pass in individual item
             }
+               
+		echo '
+	    <tr><td><input type = "submit" name = "orderedItems" value ="Submit Order"></td> </tr>
+	   	</table>
+    	</form>   ';
+        }//if statement to generate menu + order form
+
+
+		else //items ordered, display summary and price
+        {   
+            echo '<pre>';\
+            var_dump($_POST);
+            echo'</pre>';
+		
+          
   
-                        //save item quantities each item in array before calling calculate total function
-                        //while items exists in ordered items, if item name equals
+                      
          CalculateTotal($_POST['orderedItems']);
                    
-           }
+        }
  
 
 
