@@ -2,13 +2,13 @@
 //item class
 
 class Item{
-private $quantity=0;
-private $name='';
-private $description='';
-private $price=0.0;
+public $quantity=0;
+public $name='';
+public $description='';
+public $price=0.0;
 
     
-    public function Item($itemName, $itemDescription, $itemPrice) //class constructor
+    public function Item($itemName, $itemPrice, $itemDescription) //class constructor
     {
         $this->name=$itemName;
         $this->description  = $itemDescription;
