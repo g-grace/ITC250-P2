@@ -7,14 +7,14 @@ function generateItemRow(Item $tempItem)
 
 echo '
 <tr>
-    <td>Item Name: $tempItem->name
+    <td>  '. $tempItem->name .'</td>
+    <td>  '. $tempItem->description .'
     </td>
-    <td>Item Price:
+    <td>   $'.$tempItem->price.'
     </td>
-    <td>Item Description: $tempItem->description
-    </td>
-    <td> Select quantity: <form action = "<?php echo $_SERVER[’PHP_SELF’]; ?>"  method = "GET">        Degrees:  <input type = "text" name = "degree" size=8>
-    	<select name= $tempItem->name . "quantity">
+    
+    <td>  <form action = "' . $_SERVER['PHP_SELF'] .'"  method = "GET">     
+    	<select name="'. $tempItem->name . 'Quantity">
         	<option value="0">0</option>
         	<option value="1">1</option>
         	<option value="2">2</option>
@@ -34,14 +34,17 @@ echo '
 
 function createLineItem()
 {
+    echo '
     
+    
+    ';
 }
 function calculateTotal($itemsOrdered)
 {
 	$total=0;
 
  
-      echo 'You ordered ' . $quantity  . ' ' . $item->name;
+      
  
     
 }
