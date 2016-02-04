@@ -1,8 +1,11 @@
     <?php
     //item order page
+    
+    //Use includes here with ItemFunctions.php and ItemClass.php
     include 'git_ItemClass.php';
     include 'git_ItemFunctions.php';
 
+    //Create MenuItem... menu can be added and alter at anytime at this OrderPage.php 
     $menuItems[]=new Item("Tacos", 2.50, "Two Tacos made with your choice of meat. lettuce and guacamole");
     $menuItems[]=new Item("Burrito", 4.50, "Your choice of meat, rice, beans, tomato and grilled onions wrapped in a tortilla skin");
     $menuItems[]=new Item("Chimichanga", 4.75, "Deep Fried Burrito Goodness!");
@@ -23,7 +26,6 @@
             echo'<tr><td> Item: </td> <td> Description: </td> <td> Price:     </td><td> Quantity: </td></tr>';
             foreach($menuItems as $tempItem) //while the array has items left in it
             {
-                
                 generateItemRow($tempItem); //call create row function and pass in individual item
             }
                
@@ -33,16 +35,12 @@
     	</form>   ';
         }//if statement to generate menu + order form
 
-
 		else //items ordered, display summary and price
         {   
-          
-		
-          
-  
-                      
+         
          CalculateTotal($_POST, $menuItems);
             echo'<br>';
+        //Show a (Place Another Order!) button where you can go back place a new order
         echo '<a href='. $_SERVER['PHP_SELF'] .'> Place Another Order! </a>';       
         }
  
