@@ -1,6 +1,8 @@
 <?php
 //functions
 
+//Function to create a new roll for new Item starts with Item Name > Description > Price
+//Create a table (Order Form) with Item Name > Description > Price > Quantity (drop-down list #0-9)
 
 function generateItemRow(Item $tempItem)
 {
@@ -8,12 +10,10 @@ function generateItemRow(Item $tempItem)
 echo '
 <tr>
     <td>  '. $tempItem->name .'</td>
-    <td>  '. $tempItem->description .'
-    </td>
-    <td>   $'.$tempItem->price.'
-    </td>
+    <td>  '. $tempItem->description .'</td>
+    <td>   $'.$tempItem->price.'</td>
     
-    <td>  <form action = "' . $_SERVER['PHP_SELF'] .'"  method = "GET">     
+    <td>  <form action = "' . $_SERVER['PHP_SELF'] .'"  method = "GET">  
     	<select name="'. $tempItem->name . 'Quantity">
         	<option value="0">0</option>
         	<option value="1">1</option>
@@ -32,7 +32,7 @@ echo '
 ';
 }   
 
-
+//Create a function calculating Item-Quantity selected in the Order Form... will use array here
 function calculateTotal($itemsOrdered, $menuItems)
 {
 	$total=0;
