@@ -36,15 +36,14 @@
 
 		else //items ordered, display summary and price
         {   
-            echo '<pre>';\
-            var_dump($_POST);
-            echo'</pre>';
+          
 		
           
   
                       
-         CalculateTotal($_POST['orderedItems']);
-                   
+         CalculateTotal($_POST, $menuItems);
+            echo'<br>';
+        echo '<a href='. $_SERVER['PHP_SELF'] .'> Place Another Order! </a>';       
         }
  
 
