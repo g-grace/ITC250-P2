@@ -32,18 +32,21 @@ echo '
 ';
 }   
 
-function createLineItem()
-{
-    echo '
-    
-    
-    ';
-}
-function calculateTotal($itemsOrdered)
+
+function calculateTotal($itemsOrdered, $menuItems)
 {
 	$total=0;
-
- 
+    
+    foreach($menuItems as $tempItem) //while the array has items left in it
+            {
+                
+               if ($itemsOrdered[$tempItem->name.'Quantity'] > 0) //call create row function and pass in individual item
+               {
+                   $total = $total + ($itemsOrdered[$tempItem->name.'Quantity']*$tempItem->price);
+                   
+               }
+            }
+    echo 'Your order total is $' . $total . '.';
       
  
     
